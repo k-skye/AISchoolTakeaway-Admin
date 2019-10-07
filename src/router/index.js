@@ -51,8 +51,21 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '仪表盘', icon: 'dashboard' }
     }]
+  },
+
+  {
+    path: '/restaurant',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Restaurant',
+        component: () => import('@/views/restaurant/index'),
+        meta: { title: '店铺', icon: 'table' }
+      }
+    ]
   },
 
   {
@@ -164,7 +177,7 @@ export const constantRoutes = [
 ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
+  mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
